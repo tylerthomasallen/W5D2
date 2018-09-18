@@ -35,3 +35,161 @@ Migrating to CreateUsers (20180918175328)
   ↳ bin/rails:9
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-09-18 11:24:36 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/var/rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/var/rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/var/rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (14.3ms)
+Completed 200 OK in 233ms (Views: 125.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/links" for 127.0.0.1 at 2018-09-18 11:24:40 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/links"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/links" for 127.0.0.1 at 2018-09-18 11:24:58 -0700
+Processing by LinksController#index as HTML
+  Rendering links/index.html.erb within layouts/application
+  Rendered links/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1143ms (Views: 1141.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-09-18 11:33:34 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 99ms (Views: 74.0ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-09-18 11:33:44 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"RsdZDqCHhXEhgIQ5EawD5NMYdWh0y0BP62GU/nOQKfqvebP/zEJlsq0kUbXQcIs0AvSmvRs3d+iGgIWIDlVisA==", "user"=>{"username"=>"devin", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - uninitialized constant User::BCrypt:
+  app/models/user.rb:21:in `password='
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "/__better_errors/5210fdbefbcf447c/variables" for 127.0.0.1 at 2018-09-18 11:33:44 -0700
+Started POST "/users" for 127.0.0.1 at 2018-09-18 11:34:36 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"RsdZDqCHhXEhgIQ5EawD5NMYdWh0y0BP62GU/nOQKfqvebP/zEJlsq0kUbXQcIs0AvSmvRs3d+iGgIWIDlVisA==", "user"=>{"username"=>"devin", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - uninitialized constant User::BCrypt:
+  app/models/user.rb:21:in `password='
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "/__better_errors/f1168595c717f7b6/variables" for 127.0.0.1 at 2018-09-18 11:34:36 -0700
+Started POST "/users" for 127.0.0.1 at 2018-09-18 11:34:49 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"RsdZDqCHhXEhgIQ5EawD5NMYdWh0y0BP62GU/nOQKfqvebP/zEJlsq0kUbXQcIs0AvSmvRs3d+iGgIWIDlVisA==", "user"=>{"username"=>"devin", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - uninitialized constant User::BCrypt:
+  app/models/user.rb:21:in `password='
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "/__better_errors/3b34ad47824c17dd/variables" for 127.0.0.1 at 2018-09-18 11:34:49 -0700
+Started GET "/users/new" for 127.0.0.1 at 2018-09-18 11:34:54 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-09-18 11:34:55 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-09-18 11:34:55 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-09-18 11:34:58 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"7k/M9b1LDhhPAmSA+Jl1FrrX8KaYcPoEY0xyonBUPMcH8SYE0Y7u28OmsQw5Rf3Gazsjc/eMzaMOrWPUDZF3jQ==", "user"=>{"username"=>"devin", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - uninitialized constant User::BCrypt:
+  app/models/user.rb:21:in `password='
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "/__better_errors/dd378a7259bb2b6d/variables" for 127.0.0.1 at 2018-09-18 11:34:59 -0700
+Started GET "/users/new" for 127.0.0.1 at 2018-09-18 11:36:02 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/var/rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 331ms (Views: 299.7ms | ActiveRecord: 8.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-09-18 11:36:09 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"0ioyMEHeSbMJz3YXYGEuQTygwibGi8qPY01sK1S0dik7lNjBLRupcIVro5uhvaaR7UwR86l3/SgOrH1dKXE9Yw==", "user"=>{"username"=>"devin", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (49.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "session_token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "devin"], ["session_token", "FRgNNFPW_uLqStlhwJnWOg"], ["password_digest", "$2a$10$B3Jo1NUPWf3jdvohEQ5tUe01J6iW1SbyvXLDDBEZKfbM1ZJLHqUJG"], ["created_at", "2018-09-18 18:36:09.234639"], ["updated_at", "2018-09-18 18:36:09.234639"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:15
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "zGJNPZf9EHyHOErN8S2tAQ"], ["updated_at", "2018-09-18 18:36:09.287376"], ["id", 1]]
+  ↳ app/models/user.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:15
+Redirected to http://localhost:3000/links
+Completed 302 Found in 137ms (ActiveRecord: 51.9ms)
+
+
+Started GET "/links" for 127.0.0.1 at 2018-09-18 11:36:09 -0700
+Processing by LinksController#index as HTML
+  Rendering links/index.html.erb within layouts/application
+  Rendered links/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 26ms (Views: 25.4ms | ActiveRecord: 0.0ms)
+
+
