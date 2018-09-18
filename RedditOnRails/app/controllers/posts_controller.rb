@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :require_login
   
   def new 
     @post = Post.new 
@@ -26,10 +27,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     sub_id = @post.sub_id
     
-    if current_user == @post.user && @post.update(post_params)
+    unless @post.author == current_user
+      flash[:errors] = ['You are not the author of this post']
+      redirect_to post_url(@post)
+    end
+    
+    if @post.update(post_params)
       redirect_to post_url(@post)
     else 
-      flash.now[:errors] = @post.errors ? @post.errors.full_messages : ['Not your post!!!']
+      flash.now[:errors] = @post.errors.full_messages
       render :edit
     end
   end 
