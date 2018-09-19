@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   
   resources :links
   
-  resources :posts, except: [:index, :new]
+  resources :posts, except: [:index]
   
-  resources :subs, except: :destroy do
-    resources :posts, only: :new
-  end
+  resources :subs, except: :destroy
   
   
 end

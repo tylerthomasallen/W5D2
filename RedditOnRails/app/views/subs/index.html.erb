@@ -1,0 +1,11 @@
+<h1>Subs Index Page</h1>
+<% @subs.each do |sub| %>
+  <a href="<%= sub_url(sub) %>"><%= sub.title %></a>
+  <br>
+<% end %>
+
+<form class="" action="<%= new_sub_url %>" method="get">
+  <%= auth_token %>
+  <input type="submit" name="" value="Create Sub">
+  
+</form>

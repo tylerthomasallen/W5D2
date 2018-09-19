@@ -1,0 +1,11 @@
+<h1>Show Sub Page</h1>
+
+<% @sub.posts.each do |post| %>
+  <a href="<%= post_url(post) %>"><%= post.title %></a>
+  <br>
+<% end %>
+
+<form class="" action="<%= new_post_url %>" method="get">
+  <%= auth_token %>
+  <input type="submit" name="" value="Create Post">
+</form>

@@ -10,20 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_18_183746) do
+ActiveRecord::Schema.define(version: 2018_09_18_235946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "post_subs", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "sub_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_subs_on_post_id"
+    t.index ["sub_id", "post_id"], name: "index_post_subs_on_sub_id_and_post_id", unique: true
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.string "url"
     t.text "content"
-    t.integer "sub_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sub_id"], name: "index_posts_on_sub_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

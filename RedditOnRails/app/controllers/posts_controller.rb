@@ -2,15 +2,19 @@ class PostsController < ApplicationController
   before_action :require_login
   
   def new 
+    @subs = Sub.all
     @post = Post.new 
+    @sub_id = params[:sub_id]
     render :new
   end 
   
   def create 
     @post = Post.new(post_params)
-    @post.sub_id = params[:sub_id]
-    @post.user_id = current_user.id 
+    @post.user_id = current_user.id
+    
+
     if @post.save 
+
       redirect_to post_url(@post)
     else 
       flash.now[:errors] = @post.errors.full_messages 
@@ -19,13 +23,13 @@ class PostsController < ApplicationController
   end 
   
   def edit 
+    @subs = Sub.all
     @post = Post.find(params[:id])
     render :edit
   end 
   
   def update 
     @post = Post.find(params[:id])
-    sub_id = @post.sub_id
     
     unless @post.author == current_user
       flash[:errors] = ['You are not the author of this post']
@@ -35,6 +39,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to post_url(@post)
     else 
+      @subs = Sub.all
       flash.now[:errors] = @post.errors.full_messages
       render :edit
     end
@@ -57,6 +62,6 @@ class PostsController < ApplicationController
   private 
   
   def post_params
-    params.require(:post).permit(:title, :url, :content)
+    params.require(:post).permit(:title, :url, :content, sub_ids: [])
   end
 end

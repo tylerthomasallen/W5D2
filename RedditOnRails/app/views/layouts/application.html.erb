@@ -19,20 +19,23 @@
           <input type="hidden" name="_method" value="delete">
           <input type="submit" name="" value="Log Out">
         </form>
+        
+        <form class="" action="<%= subs_url %>" method="get">
+          <%= auth_token %>
+          <input type="submit" value="View Subs">
+        </form>
       <% else %>
       
-      <form class="" action="<%= new_session_url %>" method="get">
-        <%= auth_token %>
-        <input type="submit" name="" value="Sign In">
-      </form>
-      
-      <form class="" action="<%= new_user_url %>" method="get">
-        <%= auth_token %>
-        <input type="submit" name="" value="Sign Up">
-      </form>
-      
-      
+        <form class="" action="<%= new_session_url %>" method="get">
+          <%= auth_token %>
+          <input type="submit" name="" value="Sign In">
         </form>
+        
+        <form class="" action="<%= new_user_url %>" method="get">
+          <%= auth_token %>
+          <input type="submit" name="" value="Sign Up">
+        </form>
+      
       <% end %>
     </header>
     <%= yield %>

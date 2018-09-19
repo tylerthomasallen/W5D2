@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(username, password)
     if @user 
       login(@user)
-      redirect_to links_url
+      redirect_to subs_url
     else
       @user = User.new
       flash.now[:errors] = 'Invalid Login Credentials'
